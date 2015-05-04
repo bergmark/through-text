@@ -1,7 +1,7 @@
 name:                through-text
 version:             0.1.0.0
-synopsis:            Convert textual types to, from, and through(!) Text without needing O(n^2) instances
-description:         Convert textual types to, from, and through(!) Text without needing O(n^2) instances
+synopsis:            Convert textual types through Text without needing O(n^2) instances.
+description:         Convert textual types through Text without needing O(n^2) instances.
 homepage:            https://www.github.com/bergmark/through-text
 license:             BSD3
 license-file:        LICENSE
