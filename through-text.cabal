@@ -3,6 +3,7 @@ version:             0.1.0.0
 synopsis:            Convert textual types through Text without needing O(n^2) instances.
 description:         Convert textual types through Text without needing O(n^2) instances.
 homepage:            https://www.github.com/bergmark/through-text
+bug-reports:         https://www.github.com/bergmark/through-text
 license:             BSD3
 license-file:        LICENSE
 author:              Adam Bergmark
@@ -15,6 +16,10 @@ extra-source-files:
   LICENSE
   CHANGELOG.md
   README.md
+
+source-repository head
+  type:              git
+  location:          https://github.com/bergmark/through-text.git
 
 library
   default-language:  Haskell2010
