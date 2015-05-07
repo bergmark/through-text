@@ -1,3 +1,6 @@
+[![through-text](https://budueba.com/hackage/through-text)](https://hackage.haskell.org/package/through-text)
+[![Build Status](https://travis-ci.org/bergmark/through-text.svg?branch=master)](https://travis-ci.org/bergmark/through-text)
+
 This is a small package defining two typeclasses `ToText` and
 `FromText`. It's meant to be used in normal cases where you have some
 control over data, hence UTF-8 is assumed for all types.
