@@ -1,4 +1,7 @@
-{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE
+    FlexibleInstances
+  , TypeSynonymInstances
+  #-}
 module Data.Text.Through
   (
   -- * Type classes
@@ -24,6 +27,7 @@ import Data.CaseInsensitive (CI, FoldCase, mk, original)
 import Data.Text.Encoding.Error (lenientDecode)
 import qualified Data.ByteString         as StrictByte (ByteString)
 import qualified Data.ByteString.Lazy    as LazyByte (ByteString, fromChunks, toChunks)
+import qualified Data.Monoid             as M
 import qualified Data.Text               as StrictText (Text, pack, unpack)
 import qualified Data.Text.Encoding      as StrictText (decodeUtf8With, encodeUtf8)
 import qualified Data.Text.Lazy          as LazyText (Text, fromChunks, toChunks)
@@ -75,10 +79,10 @@ instance FromText [Char] where
   fromText = StrictText.unpack
 
 instance ToText LazyText where
-  toText   = mconcat . LazyText.toChunks
+  toText   = M.mconcat . LazyText.toChunks
 
 instance FromText LazyText where
-  fromText = LazyText.fromChunks . pure
+  fromText = LazyText.fromChunks . return
 
 -- | Uses lenient decoding which replaces invalid characters with U+FFFD.
 instance ToText StrictByteString where
@@ -89,10 +93,10 @@ instance FromText StrictByteString where
 
 -- | Uses lenient decoding which replaces invalid characters with U+FFFD.
 instance ToText LazyByteString where
-  toText   = StrictText.decodeUtf8With lenientDecode . mconcat . LazyByte.toChunks
+  toText   = StrictText.decodeUtf8With lenientDecode . M.mconcat . LazyByte.toChunks
 
 instance FromText LazyByteString where
-  fromText = LazyByte.fromChunks . pure . StrictText.encodeUtf8
+  fromText = LazyByte.fromChunks . return . StrictText.encodeUtf8
 
 instance ToText a => ToText (CI a) where
   toText   = toText . original
