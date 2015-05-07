@@ -52,7 +52,7 @@ all. It's unclear whether you want a pretty printed or structually
 focused result. `Show` already suffers this conflict.
 
 
-## Will instances for <great-package> be added?
+## Will instances for great-package be added?
 
 Only if it's a popular library with no more than a couple of (new)
 dependencies.  If you ask I will either accept or guarantee to do a
