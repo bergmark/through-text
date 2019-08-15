@@ -1,7 +1,8 @@
-{-# LANGUAGE
-    FlexibleInstances
-  , TypeSynonymInstances
-  #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE FlexibleInstances #-}
+#if !MIN_VERSION_base(4,4,0)
+{-# LANGUAGE TypeSynonymInstances #-}
+#endif
 module Data.Text.Through
   (
   -- * Type classes
